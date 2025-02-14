@@ -5,23 +5,23 @@ import mongoose from "mongoose"
 export const dbConnection = async () => {
     try{
         mongoose.connection.on("error", () =>{
-            console.log("MongoDB | could not be connect to MongoDB")
+            console.log("MongoDB | Could not be connect to MongoDB")
             mongoose.disconnect()
         })
         mongoose.connection.on("connecting", () =>{
-            console.log("MongoDB | try connecting")
+            console.log("MongoDB | Try connecting")
         })
         mongoose.connection.on("connected", () =>{
-            console.log("MongoDB | connected to MongoDB")
+            console.log("MongoDB | Connected to MongoDB")
         })
         mongoose.connection.on("open", () =>{
-            console.log("MongoDB | Connnected to DataBase")
+            console.log("MongoDB | Connnected to MongoDB")
         })
         mongoose.connection.on("reconnected", () => {
-            console.log("MongoDB | reconnected to MongoDB")
+            console.log("MongoDB | Reconnected to MongoDB")
         })
         mongoose.connection.on("disconnected", () => {
-            console.log("MongoDB | disconnected to MongoDB")
+            console.log("MongoDB | Disconnected to MongoDB")
         })
 
         await mongoose.connect(process.env.URI_MONGO,{
